@@ -1,0 +1,17 @@
+identity:
+  address: 127.0.0.1:5006
+  externaladdress: 127.0.0.1:5006
+honeybadger:
+  networksize: 4
+  byzantine: 1
+  batchsize: 4
+  proposeinterval: 1s
+members:
+  addresses:
+  - localhost:5000
+  - localhost:5002
+  - localhost:5006
+  - localhost:5004
+tpke:
+  masterpublickey: asdf
+  threshold: 3
