@@ -3,6 +3,7 @@ package cleisthenes
 import (
 	"errors"
 	"fmt"
+	"github.com/DE-labtory/iLogger"
 	"sync"
 	"sync/atomic"
 
@@ -74,6 +75,7 @@ func (conn *GrpcConnection) Send(msg pb.Message, successCallBack func(interface{
 		OnSuccess: successCallBack,
 	}
 
+	iLogger.Infof(nil, "将消息m : %v放入GrpcConnection", m)
 	conn.outChan <- m
 }
 
@@ -145,6 +147,7 @@ func (conn *GrpcConnection) writeStream() {
 	for !conn.isDie() {
 		select {
 		case m := <-conn.outChan:
+			//使用streamWrapper包装消息体并发送出去
 			err := conn.streamWrapper.Send(m.Message)
 			if err != nil {
 				if m.OnErr != nil {

@@ -14,11 +14,12 @@ func (t *MockTpke) Encrypt(data interface{}) ([]byte, error) {
 	////pk为主公钥
 	//pk := playGround.publishPubKey()
 	//msg, _ := json.Marshal(data)
-	//iLogger.Infof(nil, "msg : %v", msg)
+	//iLogger.Infof(nil, "序列化后的交易为msg : %v", msg)
 	////使用主公钥对消息msg进行加密，得到密文cipherText
 	//cipherText, err := pk.Encrypt(msg)
 	//cipherData, _ := json.Marshal(cipherText)
-    //return cipherData, err
+	//iLogger.Infof(nil, "门限加密的交易为cipherData : %v", cipherData)
+	//return cipherData, err
 
 	//原设计：没有实现门限签名，只是序列化了
 	return json.Marshal(data)

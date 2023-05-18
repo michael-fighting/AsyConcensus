@@ -125,6 +125,7 @@ func (acs *ACS) HandleInput(data []byte) error {
 		return errors.New(fmt.Sprintf("no match rbc instance - address : %s", acs.owner.Address.String()))
 	}
 
+	iLogger.Infof(nil, "开始执行RBC阶段，此时的acs.owner为 : %v", acs.owner)
 	return rbc.HandleInput(data)
 }
 
